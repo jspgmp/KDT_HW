@@ -27,3 +27,11 @@ const msg = item ?
 alert(msg);
 
 // 아래에 getItemByAmount 함수를 작성하세요.
+function getItemByAmount(data, amount) {
+    const buyable = data.filter(a=> a.price <= amount);
+    const sorted = buyable.sort(function(a,b) {
+      return  a.price - b.price ;
+    })
+    return sorted[sorted.length-1];
+}
+

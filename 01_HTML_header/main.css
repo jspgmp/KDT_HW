@@ -1,0 +1,59 @@
+.header {
+    padding: 8px 0px;
+    background-color: #040d21;
+}
+
+.container {
+    width: 1192px;
+    height: 56px;
+    margin: auto;
+    color: white;
+}
+
+.logo img {
+    float: left;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.container-menu1 {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-right: 20px;
+    float: left;
+}
+
+.container-menu2 {
+    padding: 16px 20px;
+    float: right;
+}
+
+.input-menu {
+    margin-top: 12px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    display: block;
+    float: right;
+    border: 1px solid;
+    box-shadow: none;
+    border-radius: 6px;
+}
+
+.container-signup {
+    margin-top: 12px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 8px;
+    float: right;
+    border: 1px solid;
+    border-color: white;
+    border-radius: 6px;
+    padding-right: 8px;
+}
+
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
