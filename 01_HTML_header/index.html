@@ -8,23 +8,26 @@
 <body>
     <div class="header">
         <div class="container">
-            <div class="container-left clearfix">
-                <div class="logo">
+            <div class="container-left">
+                <a class="logo" href="https://github.com">
                     <img src="https://heropcode.github.io/GitHub-Responsive/img/logo.svg" alt="GitHub Logo">
-                </div>
-                <div class="container-menu1">Why GitHub?</div>
-                <div class="container-menu1">Team</div>
-                <div class="container-menu1">Enterprise</div>
-                <div class="container-menu1">Explore</div>
-                <div class="container-menu1">Marketplace</div>
-                <div class="container-menu1">Pricing</div>
-                <div class="container-signup">Sign up</div>
-                <div class="container-menu2">Sign in</div>
+                </a>                
+                <div class="container-menu-left">Why GitHub?</div>
+                <a class="container-menu-left" href="/team">Team</a>
+                <a class="container-menu-left" href="/enterprise">Enterprise</a>
+                <div class="container-menu-left">Explore</div>
+                <a class="container-menu-left" href="/marketplce">Marketplace</a>
+                <div class="container-menu-left">Pricing</div>
+            </div>
+            <div class="container-right">
                 <label class="input-menu">
                     <input type="text" class="input" value placeholder="Search GitHub">
-                </div>
+                </div> <!-- lavel 로 고치면 sign in sign up 버튼이 줄바꿈됌! -->
+                <a class="container-menu-signin" href="/login">Sign in</a>
+                <a class="container-menu-signup" href="/signin">Sign up</a>                
             </div>
         </div>
     </div>
 </body>
 </html>
+
