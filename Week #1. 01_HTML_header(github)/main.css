@@ -4,10 +4,11 @@
 }
 
 .container {
-    width: 1192px;
+    width: 1248px;
     height: 56px;
     margin: auto;
     color: white;
+    position: relative;
 }
 
 .logo img {
@@ -16,44 +17,51 @@
     margin-top: 10px;
 }
 
-.container-menu1 {
+.container-menu-left {
     padding-top: 16px;
     padding-bottom: 16px;
     padding-right: 20px;
     float: left;
+    text-decoration-line: none;
+    color: white;
 }
 
-.container-menu2 {
-    padding: 16px 20px;
+.container-right {
+    position: relative;
     float: right;
 }
 
 .input-menu {
+    position: absolute;
+    right: 150px;
+    width: 240px;
     margin-top: 12px;
     padding-top: 4px;
     padding-bottom: 4px;
-    display: block;
-    float: right;
     border: 1px solid;
     box-shadow: none;
     border-radius: 6px;
+    background-color: white;
 }
 
-.container-signup {
+.container-menu-signin {
+    padding: 16px 20px;
+    position: absolute;
+    right: 68px;
+    color: white;
+    text-decoration-line: none;
+}
+
+.container-menu-signup {
+    position: absolute;
+    right: 0px;
     margin-top: 12px;
     padding-top: 4px;
     padding-bottom: 4px;
     padding-left: 8px;
-    float: right;
     border: 1px solid;
-    border-color: white;
     border-radius: 6px;
     padding-right: 8px;
-}
-
-
-.clearfix::after {
-    content: "";
-    display: block;
-    clear: both;
+    color: white;
+    text-decoration-line: none;
 }
