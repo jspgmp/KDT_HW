@@ -23,3 +23,6 @@ KDT 과제 repo 입니다.
 4. Week [#3]. KDT mini project 03
    (파이썬)
    : 네이버 클롤러를 활용하는 프로젝트입니다.
+---
+5. Week #4. HTML blog 수정하기
+   : readme.md 파일 안내에 따른 방법대로 index.html파일을 수정하였습니다. 
