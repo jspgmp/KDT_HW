@@ -27,25 +27,30 @@
 
 from NaverNewsCrawler import NaverNewsCrawler
 
+
 ####사용자로 부터 기사 수집을 원하는 키워드를 input을 이용해 입력받아 ? 부분에 넣으세요
 choosekeyword = input('수집을 원하는 키워드를 입력하세요: ')
 crawler = NaverNewsCrawler(choosekeyword)
 
 #### 수집한 데이터를 저장할 엑셀 파일명을 input을 이용해 입력받아 ? 부분에 넣으세요
-file_name = input('저장할 파일명을 영어로 .xlsx까지 입력하세요: ')
-crawler.get_news(file_name)
+file_name = input('저장할 파일명을 입력하세요: ')
+crawler.get_news(file_name + '.xlsx')
 
 #### 아래코드를 실행해 이메일 발송 기능에 필요한 모듈을 임포트하세요.
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import smtplib
 import re
+import json
+
+with open('conf.json')as f:
+    confi = json.load(f)
 
 #### gmail 발송 기능에 필요한 계정 정보를 아래 코드에 입력하세요.
 SMTP_SERVER = 'smtp.gmail.com'
 SMTP_PORT = 465
-SMTP_USER = 'mmriann5@gmail.com'
-SMTP_PASSWORD = 'password'
+SMTP_USER = confi['email']
+SMTP_PASSWORD = confi['password']
 
 #### 아래 코드를 실행해 메일 발송에 필요한 send_mail 함수를 만드세요.
 def send_mail(name, addr, subject, contents, attachment=None):
@@ -67,13 +72,13 @@ def send_mail(name, addr, subject, contents, attachment=None):
         from email.mime.base import MIMEBase
         from email import encoders
 
-        file_data = MIMEBase('application', 'octect-stream')
+        file_data = MIMEBase('application', 'octet-stream')
         file_data.set_payload(open(attachment, 'rb').read())
         encoders.encode_base64(file_data)
 
         import os
         filename = os.path.basename(attachment)
-        file_data.add_header('Content-Disposition', 'attachment; filename="' + filename + '"')
+        file_data.add_header('Content-Disposition', 'attachment', filename=filename)
         msg.attach(file_data)
 
     smtp = smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT)
@@ -110,5 +115,5 @@ for row in ws_loadEmail.iter_rows(min_row = 3, max_col = 3) :
     receiver_name = row[1].value
     receiver_email = row[2].value
     contents = (f'안녕하세요? {receiver_name}님 \n{choosekeyword}에 대한 정보를 보내드립니다.')
-    send_mail(receiver_name, receiver_email, choosekeyword, contents, file_name)
+    send_mail(receiver_name, receiver_email, choosekeyword, contents, f'{file_name}.xlsx')
     print(f'{receiver_name} 님에게 {choosekeyword}에 대한 내용을 전송하였습니다.')
