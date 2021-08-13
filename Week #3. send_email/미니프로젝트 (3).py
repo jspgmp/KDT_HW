@@ -41,15 +41,15 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import smtplib
 import re
-import json
+import json ##json 사용을 위해 import
 
-with open('conf.json')as f:
+with open('conf.json')as f: ##json 으로 정보를 빼기 위한 장치
     confi = json.load(f)
 
 #### gmail 발송 기능에 필요한 계정 정보를 아래 코드에 입력하세요.
 SMTP_SERVER = 'smtp.gmail.com'
 SMTP_PORT = 465
-SMTP_USER = confi['email']
+SMTP_USER = confi['email']## json파일로 이메일과 비밀번호 뺴기
 SMTP_PASSWORD = confi['password']
 
 #### 아래 코드를 실행해 메일 발송에 필요한 send_mail 함수를 만드세요.
@@ -78,7 +78,7 @@ def send_mail(name, addr, subject, contents, attachment=None):
 
         import os
         filename = os.path.basename(attachment)
-        file_data.add_header('Content-Disposition', 'attachment', filename=filename)
+        file_data.add_header('Content-Disposition', 'attachment', filename=filename)##한글파일도 정상첨부 하기위해 수정
         msg.attach(file_data)
 
     smtp = smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT)
