@@ -13,7 +13,8 @@
         />
         <!-- 02. 브라우저 타이틀 표시하기(이곳에 작성) -->
         <title>MY BLOG</title>
-        <script src="./js/main.js" defer></script>
+        <!-- <script src="./js/main.js" defer></script> defer옵션을 넣으면 스크립트 처리하지 않고 계속 읽는다. -->
+        <script src="./js/main.js"></script>
     </head>
     <body>
         <!-- 헤더 -->
@@ -23,10 +24,12 @@
                 <article>
                     <ul class="menu">
                         <li class="menu-item">
-                            <a href="#card1" target="_self"> 게시글#1</a>
+                            <a href="../index.html#card1" target="_self"> 게시글#1</a>
+                            <!-- 8번 line에서 Base를 ./assets/으로 지정하였으므로 본 태그 주소도 위와같이 변경하여야 한다. -->
                         </li>
                         <li class="menu-item">
-                            <a href="#card2" target="_self"> 게시글#2</a>
+                            <a href="../index.html#card2" target="_self"> 게시글#2</a>
+                            <!-- 8번 line에서 Base를 ./assets/으로 지정하였으므로 본 태그 주소도 위와같이 변경하여야 한다. -->
                         </li>
                     </ul>
                 </article>
@@ -38,7 +41,9 @@
             <section class="write">
                 <header><h2 class="title">글쓰기</h2></header>
                 <div class="container">
-                    <form action="#">
+                    <!--<form action="#"> 실제 Request를 보낼 때 사용되는 주소이며, form 안의 input tag의 value를 전달한다. -->
+                    <form action="#" method = "post">
+                    <!-- -->
                         <p>
                             <label>
                                 제목<br />
@@ -230,9 +235,9 @@
                         <li>사무실 : 서울시 강남구 강남대로 364</li>
                         <li>
                             이메일 :
-                            <a href="mailto:myblog@example.com"
-                                >myblog@example.com</a
-                            >
+                            <a href="mailto:myblog@example.com">
+                                myblog@example.com
+                            </a>
                         </li>
                         <li>
                             전화번호 :
